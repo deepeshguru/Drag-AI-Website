@@ -45,10 +45,8 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Create a status check entry
-      await axios.post(`${BACKEND_URL}/api/status`, {
-        client_name: `${formData.name} - ${formData.company || 'Individual'}`
-      });
+      // Submit contact form
+      await axios.post(`${BACKEND_URL}/api/contact`, formData);
 
       toast({
         title: "Message sent successfully!",
